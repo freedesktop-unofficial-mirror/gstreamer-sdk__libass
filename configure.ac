@@ -92,6 +92,12 @@ fi
 
 AM_CONDITIONAL([HAVE_LIBPNG], [test x$libpng = xtrue])
 
+case "$host" in
+  *-*-mingw*)
+    LDFLAGS="$LDFLAGS -no-undefined"
+    ;;
+esac
+
 # add libraries/packages to pkg-config for static linking
 pkg_libs="-lm"
 pkg_requires="freetype2 >= 9.6.3"

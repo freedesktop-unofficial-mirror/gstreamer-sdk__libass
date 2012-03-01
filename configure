@@ -12824,6 +12824,11 @@ else
   HAVE_LIBPNG_FALSE=
 fi
 
+case "$host" in
+  *-*-mingw*)
+    LDFLAGS="$LDFLAGS -no-undefined"
+    ;;
+esac
 
 # add libraries/packages to pkg-config for static linking
 pkg_libs="-lm"
